@@ -72,7 +72,7 @@ Util.parseCommand = function(message, commandName, options){
     if(!noRequireTrigger)
         trigger = "(?:\\/)";
 
-    var re = new RegExp("^" + trigger + "(" + regexParam +")\\s+(.*)"); 
+    var re = new RegExp("" + trigger + "(" + regexParam +")\\s+(.*)"); 
 
     var match = re.exec(message + " "); //we have to add this space because we specified "\s+" in the regex, to separate command from params, if we use "\s*" "!google test" -> ["g","oogle","test"] 
 

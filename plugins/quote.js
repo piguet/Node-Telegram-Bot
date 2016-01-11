@@ -45,7 +45,7 @@ var quote = function(){
         {
             choice = Math.floor(Math.random() * quotes.length);
 
-            reply({type: 'text', text: "`" + quotes[choice] + "`", options:{parse_mode: "Markdown"}});
+            reply({type: 'text', text: "``" + quotes[choice] + "``", options:{parse_mode: "Markdown"}});
         }
     });
 

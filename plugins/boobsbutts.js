@@ -12,13 +12,13 @@ var boobsbutts = function() {
     };
 
     this.on("text", function (msg, reply){
-        var matchBoobs = Util.parseCommand(msg.text,["boobs"]); 
-        var matchButts = Util.parseCommand(msg.text,["butts"]); 
+        var matchBoobs = Util.parseCommand(msg.text,["boobs"], {noRequireTrigger: true }); 
+        var matchButts = Util.parseCommand(msg.text,["butts"], {noRequireTrigger: true }); 
 
         if (matchBoobs || matchButts) {
             var match = matchBoobs || matchButts;
             var howMany = (match[1] || 1);
-            howMany = (howMany <= MAX_PER_COMMAND && !isNaN(howMany)) ? howMany : MAX_PER_COMMAND;
+            howMany = (howMany <= MAX_PER_COMMAND && !isNaN(howMany)) ? howMany : 1;
 
             console.log("\tboobsbutts: " + match[0]);
 
@@ -37,7 +37,7 @@ var boobsbutts = function() {
     });
 
 
-    /*this.on("inline_query", function(query, reply) {
+    this.on("inline_query", function(query, reply) {
         var matchBoobs = Util.parseInline(query.query,["boobs"]); 
         var matchButts = Util.parseInline(query.query,["butts"]); 
 
@@ -65,7 +65,7 @@ var boobsbutts = function() {
 
             });
         }
-    });*/
+    });
 
 
     this.getRandom = function(what, callback){

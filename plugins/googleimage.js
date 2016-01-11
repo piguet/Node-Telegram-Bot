@@ -37,8 +37,8 @@ var google = function() {
 
     this.on("text", function(msg, reply) {
 
-        var query = Util.parseCommand(msg.text, ["gi", "image"], {
-            joinParams: true
+        var query = Util.parseCommand(msg.text, ["!i", "!img"], {
+            joinParams: true, noRequireTrigger : true
         });
 
         if (query != null) {
@@ -68,7 +68,7 @@ var google = function() {
 
 
     this.on("inline_query", function(query, reply) {
-        var args = Util.parseInline(query.query,["gi","image"], { joinParams: true });
+        var args = Util.parseInline(query.query,["i","!i","img","!img"], { joinParams: true });
 
         if (args != null) {
             query = args[1];
