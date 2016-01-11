@@ -12,7 +12,7 @@ var request = require('request');
 var crypto = require('crypto');
 var fs = require('fs');
 
-var google = function() {
+var nino = function() {
 
     var CSE_ID = process.env.CSE_ID || "";
     var CSE_API_KEY = process.env.CSE_API_KEY || "";
@@ -20,7 +20,7 @@ var google = function() {
     this.properties = {
         inline: true,
         shortDescription: "Find images via Google",
-        fullHelp: "`/gi query` or `/image query` to find images via Google Images. Use inline with `image <query>`"
+        fullHelp: "`/gi query` or `/image query` to find images via ninoImages. Use inline with `image <query>`"
     };
 
     this.check = function() {
@@ -37,12 +37,12 @@ var google = function() {
 
     this.on("text", function(msg, reply) {
 
-        var query = Util.parseCommand(msg.text, ["!i", "!img"], {
+        var query = Util.parseCommand(msg.text, ["nino", "Nino","NINO","Frassica","frassica"], {
             joinParams: true, noRequireTrigger : true
         });
 
         if (query != null) {
-            var imageToFind = query[1];
+            var imageToFind = "Nino Frassica";
 
             if(imageToFind){
                 reply({
@@ -50,10 +50,9 @@ var google = function() {
                     status: "upload_photo"
                 });
 
-                console.log("Google Image:" + imageToFind);
+                console.log("ninoImage:" + imageToFind);
 
                 this.giClient.search(imageToFind).then(function(results){
-
                     var rnd = Math.floor(Math.random() * results.length);
                     var result = results[rnd];
                     var url = result["url"];
@@ -68,7 +67,7 @@ var google = function() {
     });
 
 
-    this.on("inline_query", function(query, reply) {
+   /* this.on("inline_query", function(query, reply) {
         var args = Util.parseInline(query.query,["i","!i","img","!img"], { joinParams: true });
 
         if (args != null) {
@@ -76,7 +75,7 @@ var google = function() {
 
             if(query)
             {
-                console.log("Google Image inline:" + query);
+                console.log("ninoImage inline:" + query);
 
 
                 this.giClient.search(query).then(function(results){
@@ -103,6 +102,8 @@ var google = function() {
             }
         }
     });
+    */
 };
 
-module.exports = google;
+
+module.exports = nino;
