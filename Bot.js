@@ -56,6 +56,15 @@ function emitHandleReply(eventName, message){
 function handleReply(chatId, reply){
     switch (reply.type) {
         case "text":
+          
+            bot.sendMessage(chatId, reply.text, reply.options);
+            break;
+        case "idchat":
+          
+            bot.sendMessage(chatId, chatId, reply.options);
+            break;
+        case "wormhole":
+            var chatId = "INSERT CHAT ID HERE";
             bot.sendMessage(chatId, reply.text, reply.options);
             break;
         case "audio":

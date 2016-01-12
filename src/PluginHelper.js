@@ -71,12 +71,12 @@ var PluginHelper = function(){
         } 
         else if (matchStart) 
         {
-            message = "Type `/list` or `/help` to see a list of available plugins. Use `/info` to get more info about me.";
+            message = "Scrivi `/list` o `/help` per avere una lista delle funzioni. Usa `/info` per avere altre informazioni.";
             reply({type:"text", text: message, options:{parse_mode: "Markdown"} });
         }
         else if (matchInfo) 
         {
-            message = "*Factotum Bot*\n\nThe only Telegram bot you will ever need.\n\nCreator: @crisbal | [Source Code](https://github.com/crisbal/Node-Telegram-Bot)";
+            message = "*Piguet*\n\nThe only Telegram bot you will ever need.\n\nCreator: @crisbal | [Source Code](https://github.com/crisbal/Node-Telegram-Bot)";
             reply({type:"text", text: message, options:{parse_mode: "Markdown", disable_web_page_preview: true} });
         }
     });
@@ -86,7 +86,7 @@ var PluginHelper = function(){
         newUser = msg.new_chat_participant;
         if(newUser.username == this.botInfo.username)
         {
-            reply({type: 'text', text: "Hello, I am Factotum Bot! Use  `/help` or `/list` to see a list of available plugins. Use `/info` to get more info about me.", options:{parse_mode: "Markdown"}});
+            reply({type: 'text', text: "Salve, sono Piguet! `/help` o `/list` per vedere i plugins. ", options:{parse_mode: "Markdown"}});
             
         } 
     });

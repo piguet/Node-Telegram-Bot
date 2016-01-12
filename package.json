@@ -10,13 +10,18 @@
     "node-telegram-bot-api": "git://github.com/yagop/node-telegram-bot-api.git",
     "redis": "*",
     "request": "^2.67.0",
-    "underscore.string": "^3.2.2"
+    "underscore.string": "^3.2.2",
+    "q": "^1.4.1",
+    "lodash": "^3.10.1",
+    "node-memecaptain-api": "git://github.com/khanh-nguyen/node-memecaptain-api.git"
   },
   "devDependencies": {
     "mocha": "~2.3.4",
     "chai": "~3.4.1",
     "sinon": "~1.17.2",
-    "sinon-chai": "~2.8.0"
+    "sinon-chai": "~2.8.0",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.1"
   },
   "scripts": {
     "start": "node Bot.js",

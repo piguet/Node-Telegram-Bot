@@ -18,7 +18,7 @@ var lapo= function() {
     var CSE_API_KEY = process.env.CSE_API_KEY || "";
 
     this.properties = {
-        inline: true,
+        inline: false,
         shortDescription: "Find images via Google",
         fullHelp: "`/gi query` or `/image query` to find images via lapoImages. Use inline with `image <query>`"
     };

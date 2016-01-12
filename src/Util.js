@@ -101,6 +101,65 @@ Util.parseCommand = function(message, commandName, options){
     } 
 };
 
+Util.parseMeme = function(message, commandName, options){
+    
+    options = options || {};
+    var splitBy = options.splitBy || "-";
+    var joinParams = options.joinParams || false;
+    var noRequireTrigger = options.noRequireTrigger || false;
+
+    if (!splitBy)
+        splitBy = "-";
+
+    var regexParam = ""
+    if (typeof commandName === 'string')
+        commandName = [commandName];
+
+    //let's build a valid regex that matches any of the passed commands
+    //["g","google","ggl"] -> g|google|ggl
+    regexParam = ""; 
+    for (var i = 0; i < commandName.length; i++) {
+        regexParam += commandName[i];
+
+        if (i != commandName.length - 1)
+            regexParam += "|";
+    }
+    
+    var trigger = "";
+    if(!noRequireTrigger)
+        trigger = "(?:\\/)";
+
+    var re = new RegExp("" + trigger + "(" + regexParam +")\\s+(.*)"); 
+
+    var match = re.exec(message + " "); //we have to add this space because we specified "\s+" in the regex, to separate command from params, if we use "\s*" "!google test" -> ["g","oogle","test"] 
+
+    var args = [];
+    if (match) {
+
+        var command = match[1].trim();
+        args = [command];
+
+        var params = match[2].split(splitBy);
+
+        if (joinParams)
+            params = [params.join(" ")];
+        
+        
+        for (var i=0;i<params.length;i++) {
+            var param = params[i].trim();
+            if(param.length>0)
+                args.push(param);
+        }
+
+        return args;
+
+    } else {
+        return null;
+    } 
+};
+
+
+
 
 Util.startsWith = function(string,what){
     return string.slice(0, what.length) == what;

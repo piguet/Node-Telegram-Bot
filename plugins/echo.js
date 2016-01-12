@@ -16,7 +16,7 @@ var echo = function(){
             {
                 text = matchEcho[1];
                 if(Util.startsWith(text,"!") || Util.startsWith(text,"/"))
-                    reply({type: 'text', text: "I am not echoing that.", options: { reply_to_message_id: msg.message_id }}); 
+                    reply({type: 'text', text: "I am not echoing that."}); 
                 else 
                     reply({type: 'text', text: matchEcho[1]}); 
             }

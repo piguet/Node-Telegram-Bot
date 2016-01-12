@@ -7,20 +7,20 @@
 
 var Util = require('./../src/Util');
 var googleImages = require('google-images');
-
+var captainApi = require('node-memecaptain-api');
 var request = require('request');
 var crypto = require('crypto');
 var fs = require('fs');
 
-var gerard= function() {
+var meme = function() {
 
     var CSE_ID = process.env.CSE_ID || "";
     var CSE_API_KEY = process.env.CSE_API_KEY || "";
 
     this.properties = {
         inline: false,
-        shortDescription: "Find images via Google",
-        fullHelp: "`/gi query` or `/image query` to find images via gerardImages. Use inline with `image <query>`"
+        shortDescription: "Create memes on the fly starting from a google image search",
+        fullHelp: "`/meme image - toptext - bottomtext \n\n beware it's veeery slow!!"
     };
 
     this.check = function() {
@@ -36,38 +36,75 @@ var gerard= function() {
     });
 
     this.on("text", function(msg, reply) {
-
-        var query = Util.parseCommand(msg.text, ["Gerard", "gerard","Gerardo","gerardo"], {
-            joinParams: true, noRequireTrigger : true
-        });
+        var query = Util.parseCommand(msg.text,["meme"], {splitBy: "-"});
+        // var query = Util.parseCommand(msg.text, ["meme", "!meme"], {
+        //     joinParams: true, noRequireTrigger : true
+        // });
 
         if (query != null) {
-            var imageToFind = "Gerard Depardieu wasted";
-
+            var imageToFind = query[1];
+            var toptext = query[2];
+            var downtext = query[3];
+            if (!query[3]){
+            var downtext = query[2];
+            var toptext = "";    
+            }
+            
             if(imageToFind){
-                reply({
-                    type: "status",
-                    status: "upload_photo"
-                });
-
-                console.log("gerardImage:" + imageToFind);
+                
+             console.log("Google Image:" + imageToFind);
 
                 this.giClient.search(imageToFind).then(function(results){
+
                     var rnd = Math.floor(Math.random() * results.length);
                     var result = results[rnd];
                     var url = result["url"];
-
-                    Util.downloadAndSaveTempResource(url, "png", function(fn){
+                    
+                    
+              captainApi.createImage(url,
+             'various').then(function(result) {
+                var sourceid = result.id;
+                
+                setTimeout(function(){
+                  captainApi.createMeme(sourceid, toptext, downtext)
+          .then(function(memeUrl) {
+              var urlm = memeUrl;// use generated meme
+              //reply({type: 'text', text: urlm});
+              reply({
+                    type: "status",
+                    status: "upload_photo"
+                });
+              Util.downloadAndSaveTempResource(urlm, "png", function(fn){
                         reply({type: 'photo', photo: fn});
                     });
+          });
+                 
+             },18000);
+                
+                
+                
+                 //reply({type: 'text', text: result.id});
+             }, function(err2) {
+                 reply({type: 'text', text: err2});
+             });
+             
+             
+             
+             
+             
+             
+             
+    
 
+             
+            
+             
                 });
             }
         }
     });
 
-
-   /* this.on("inline_query", function(query, reply) {
+    /* this.on("inline_query", function(query, reply) {
         var args = Util.parseInline(query.query,["i","!i","img","!img"], { joinParams: true });
 
         if (args != null) {
@@ -75,7 +112,7 @@ var gerard= function() {
 
             if(query)
             {
-                console.log("gerardImage inline:" + query);
+                console.log("Google Image inline:" + query);
 
 
                 this.giClient.search(query).then(function(results){
@@ -101,9 +138,7 @@ var gerard= function() {
                 });
             }
         }
-    });
-    */
+    });*/
 };
 
-
-module.exports = gerard;
+module.exports = meme;
