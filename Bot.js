@@ -64,7 +64,7 @@ function handleReply(chatId, reply){
             bot.sendMessage(chatId, chatId, reply.options);
             break;
         case "wormhole":
-            var chatId = "INSERT CHAT ID HERE";
+            var chatId = "-9965238";
             bot.sendMessage(chatId, reply.text, reply.options);
             break;
         case "audio":
