@@ -100,6 +100,16 @@ this.on("inline_query", function (query, reply){
                 // var nd = "http://www.addletters.com/pictures/napoleon-dynamite-wallpaper-generator/napoleon-dynamite-wallpaper-generator.php?shirt="+toptext+"&quote="+downtext+"";
                 var nwp = "http://www.addletters.com/pictures/newspaper-generator/newspaper-generator.php?section=NEWS&headline="+toptext+"";
                 var homer = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=yellow&color2=black&watermark=&gradient=&spacing=&x=187&y=34&w=219&h=258&move=0&move2=&rotate=&fontsize=20&text="+toptext+"&font=simpsons&allow=6128&pic=Speaker-Phone&align=Center&align2=Middle&transparency=255";
+                var ledbg = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=black&color2=&watermark=&gradient=&spacing=&x=11&y=20&w=250&h=78&move=0&move2=&rotate=&fontsize=14&text="+toptext+"&font=Comic&allow=6128&pic=bill-gates-jr&align=center&align2=Middle&transparency=255";
+                var ledwin = "http://pictureimage.whak.com/signs/parody/windows/bluescreen/default.aspx?text="+toptext+"&color=white&fontsize=12&move2=&move=&font=fixedsys&allow=326500&pic=bluescreen";
+                var ledtwink = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=deeppink&color2=gray&watermark=&gradient=&spacing=&x=-35&y=370&w=270&h=158&move=0&move2=&rotate=-28&fontsize=38&text="+toptext+"&font=lovehand&allow=6128&pic=twink&align=Center&align2=Middle&transparency=255";
+                var ledfbi = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=white&color2=black&watermark=&gradient=&spacing=&x=15&y=108&w=388&h=182&move=0&move2=&rotate=&fontsize=24&text="+toptext+"&font=signbold&allow=6128&pic=FBI-Warning&align=center&align2=Middle&transparency=255";
+                var ledrnd = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=blue&color2=black&watermark=&gradient=red&spacing=&x=76&y=150&w=268&h=138&move=0&move2=&rotate=-1.4&fontsize=22&text="+toptext+"&font=Jester&allow=6128&pic=Proud-American&align=Center&align2=Middle&transparency=255";
+                var ledfc = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=black&color2=&watermark=&gradient=&spacing=&x=131&y=204&w=145&h=118&move=0&move2=&rotate=&fontsize=16&text="+toptext+"&font=Psycho&allow=6128&pic=Fight-Club&align=center&align2=Middle&transparency=255";
+                var ledmed = "http://pictureimage.whak.com/signs/sign-generator/?allow=106&text="+toptext+"&font=HandItalic&color=black&fontsize=17&move2=48&move=80&rot=-2&pic=Medical-Prescription-Drugs&height=&width=&offx=5&offy=5&spacing=35&gradient=&tag=left&bubble=&bubH=&bubW=&watermark=&background=&border=&picURL=&shade=no&shadecolor=black";
+                var ledtb = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=dimgray&color2=gainsboro&watermark=&gradient=&spacing=&x=124&y=60&w=268&h=157&move=0&move2=&rotate=-7&fontsize=26&text="+toptext+"&font=homework&allow=6128&pic=Tony-Blair-UK&align=Center&align2=Middle&transparency=255";
+                var lednok = "http://pictureimage.whak.com/signs/sign-generator/simple.aspx?color=black&color2=&watermark=&gradient=&spacing=&x=117&y=187&w=219&h=174&move=0&move2=&rotate=&fontsize=18&text="+toptext+"&font=dotmatrix&allow=6128&pic=nokia-text-messaging&align=left&align2=Middle&transparency=255";
+                
                 var results = [
                 // {id:"0", type:'photo',photo_url: urlscn, thumb_url: urlscn ,photo_width: 1000,photo_height: 1000 },
                 {id:"0", type:'photo',photo_url: darth ,thumb_url: darth ,photo_width: 1000,photo_height: 600 },
@@ -117,7 +127,16 @@ this.on("inline_query", function (query, reply){
                 {id:"8", type:'photo',photo_url: dr ,thumb_url: dr ,photo_width: 1000,photo_height: 600 },
                 // {id:"13", type:'photo',photo_url: nd ,thumb_url: nd ,photo_width: 1000,photo_height: 600 },
                 {id:"9", type:'photo',photo_url: nwp ,thumb_url: nwp ,photo_width: 1000,photo_height: 600 },
-                {id:"10", type:'photo',photo_url: homer ,thumb_url: homer ,photo_width: 1000,photo_height: 600 },
+                {id:"10", type:'photo',photo_url: homer ,thumb_url: homer ,photo_width: 1000,photo_height: 1000 },
+                {id:"11", type:'photo',photo_url: ledbg ,thumb_url: ledbg ,photo_width: 1000,photo_height: 1000 },
+                {id:"12", type:'photo',photo_url: ledwin ,thumb_url: ledwin ,photo_width: 1000,photo_height: 600 },
+                {id:"12", type:'photo',photo_url: ledtwink ,thumb_url: ledtwink ,photo_width: 1000,photo_height: 600 },
+                {id:"13", type:'photo',photo_url: ledfbi ,thumb_url: ledfbi ,photo_width: 1000,photo_height: 1000 },
+                {id:"14", type:'photo',photo_url: ledrnd ,thumb_url: ledrnd ,photo_width: 1000,photo_height: 600 },
+                {id:"15", type:'photo',photo_url: ledfc ,thumb_url: ledfc ,photo_width: 1000,photo_height: 1000 },
+                {id:"16", type:'photo',photo_url: ledmed ,thumb_url: ledmed ,photo_width: 600,photo_height: 1000 },
+                {id:"17", type:'photo',photo_url: ledtb ,thumb_url: ledtb ,photo_width: 1000,photo_height: 600 },
+                {id:"17", type:'photo',photo_url: lednok ,thumb_url: lednok ,photo_width: 1000,photo_height: 800 },
                 ];
                 reply(results);
             }
