@@ -71,6 +71,16 @@ this.on("inline_query", function (query, reply){
             );
             
             
+            suggestCallBack = function (data) {
+                var suggestions = [];
+                $.each(data[1], function(key, val) {
+                    suggestions.push({"value":val});
+                });
+            
+            
+            
+            
+            
             
             if(calargs[0]){
                 
