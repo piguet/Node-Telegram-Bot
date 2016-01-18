@@ -48,7 +48,7 @@ var tinto = function(){
         {
             choice = Math.floor(Math.random() * tquotes.length);
 
-            reply({type: 'text', text: "_\"" + tquotes[choice] + "\"_ \n\n Tinto Brass", options:{parse_mode: "Markdown"}});
+            reply({type: 'text', text: "_\"" + tquotes[choice] + "\"_ \n\n T.B.", options:{parse_mode: "Markdown"}});
         }
     });
     

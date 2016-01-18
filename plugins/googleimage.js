@@ -69,7 +69,7 @@ var google = function() {
 
 
     this.on("inline_query", function(query, reply) {
-        var args = Util.parseInline(query.query,["i","!i","img","!img"], { joinParams: true });
+        var args = Util.parseInline(query.query,["$i","$!i","$img","$!img"], { joinParams: true });
 
         if (args != null) {
             query = args[1];
