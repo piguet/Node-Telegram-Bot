@@ -25,20 +25,20 @@ var autocomplete = function(){
     };
     
    
-          califfo = [];
+    //       califfo = [];
 
-    this.on("init", function (done){
-        var self = this;
+    // this.on("init", function (done){
+    //     var self = this;
 
-        fs.readFile("./files/califfo",'utf8', function(err, data) {
-            if(err) {
-                return done(err, null);
-            }
-            calquotes = data.toString().split("\n");
-            console.log("\tcaliffo: file loaded");
-            return done(null, self);
-        }); 
-    });
+    //     fs.readFile("./files/califfo",'utf8', function(err, data) {
+    //         if(err) {
+    //             return done(err, null);
+    //         }
+    //         calquotes = data.toString().split("\n");
+    //         console.log("\tcaliffo: file loaded");
+    //         return done(null, self);
+    //     }); 
+    // });
 
     
 
@@ -99,9 +99,12 @@ this.on("inline_query", function (query, reply){
         }
     }
     
-    
+            };
+            
+        };
     });
 
-};
 
-module.exports = califfo;
+
+}
+module.exports = autocomplete;

@@ -37,7 +37,7 @@ var google = function() {
 
     this.on("text", function(msg, reply) {
 
-        var args = Util.parseCommand(msg.text, ["google", "g"], {
+        var args = Util.parseCommand(msg.text, ["google", "g","/g","/google"], {
             joinParams: true
         });
 
