@@ -70,6 +70,9 @@ function handleReply(chatId, reply){
         case "audio":
             bot.sendAudio(chatId, reply.audio, reply.options);
             break;
+        case "voice":
+            bot.sendVoice(chatId, reply.voice, reply.options);
+            break;
         case "photo":
             bot.sendPhoto(chatId, reply.photo, reply.options);
             break;
@@ -79,6 +82,7 @@ function handleReply(chatId, reply){
         case "sticker":
             bot.sendSticker(chatId, reply.sticker, reply.options);
             break;
+       
         default:
             console.log("Error: Unrecognized reply type");
     }
