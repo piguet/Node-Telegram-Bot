@@ -75,17 +75,45 @@ var fantacalcio = function(){
                 
             };
             
-             reply({ type: "status", status: "upload_photo" });
+             
              if(fmatch == "/legasiokki@piguetbot" || fmatch ==  "/legasiokki")
              var fcurl = "http://www.fantacalcioservice.it/it/lega/privata/68853/homelega/lega-siokki-calcio/";
+             
+             
              if(fmatch == "/royalfools@piguetbot" || fmatch ==  "/royalfools")
              var fcurl = "http://www.fantacalcioservice.it/it/lega/privata/68852/homelega/royal-fools-league/";
+             
+             
+             
+             
+             
+             
              
              webshot(fcurl, 'fc.png',foptions, function(err) {
   reply({ type: "status", status: "upload_photo" });
   reply({ type: "photo", photo: 'fc.png' });
   
 });
+
+if(fmatch == "/coppa@piguetbot" || fmatch ==  "/coppa")
+             {
+                 var scurl = "http://fantasiocchi.altervista.org/slccup/slc_cup.htm";
+                 
+                 var soptions = {
+   screenSize: {
+     width: 1346
+   , height: 3170
+   },
+ shotSize: {height: '2972',width:'1067'},
+ shotOffset : {top: 200, left:140, bottom:100}, };
+                 
+                 
+                 webshot(scurl, 'fc.png',soptions, function(err) {
+  reply({ type: "status", status: "upload_photo" });
+  reply({ type: "photo", photo: 'fc.png' });
+  
+});
+             }
              
              
              

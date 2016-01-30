@@ -26,32 +26,32 @@ var karma = function(){
     };
 
     this.on("text", function (msg, reply){
-        var reKarma = /@([a-z0-9-_]+)\s*(\-\-|\+\+|—)/ig; 
+       var reKarma = /(\-\-|\+\+|—|👍🏻|👍|👍🏼|👎|👎🏻|👎🏿)/ig;  
 
         var matchKarma = reKarma.exec(msg.text);  
         
-        var matchChart = Util.parseCommand(msg.text,["karmachart"]);  
+        var matchChart = Util.parseCommand(msg.text,["medaglie"]);  
         if(matchKarma){
-            uname = matchKarma[1];
-            operator = matchKarma[2];
+            uname = msg.reply_to_message.from.username;
+            operator = matchKarma[0];
             chat = msg.chat.id;
 
             if(uname.toLowerCase() == msg.from.username.toLowerCase())
             {
-                reply({type: 'text', text: "Hey! You can't karma yourself!"});
+                reply({type: 'text', text: "Hey! Non puoi automedagliarti!"});
                 return;
             }
             
             if(operator == "--" || operator == "—")
             {
                 this.db.decr(chat + ":" + uname, function(err, now){
-                    reply({type: 'text', text: "@" + uname + " now has " + now + " Karma"});
+                    reply({type: 'text', text: "@" + uname + " ora ha " + now + " medaglie"});
                 });
             }
             else
             {
                 this.db.incr(chat + ":" + uname, function(err, now){
-                    reply({type: 'text', text: "@" + uname + " now has " + now + " Karma"});
+                    reply({type: 'text', text: "@" + uname + " ora ha " + now + " medaglie"});
                 })
             }
 
@@ -66,7 +66,7 @@ var karma = function(){
 
                 if(originalKeys.length == 0)
                 {
-                    reply({type: 'text', text: "No Karma was given in this chat."});
+                    reply({type: 'text', text: "Nessuna medaglia in questa chat."});
                     return;
                 }
                 for (var i = 0; i < originalKeys.length; i++) {
@@ -81,7 +81,7 @@ var karma = function(){
                                     return b.value - a.value;
                                 });
                                 
-                                message = "👑 Karma Ranking 👑\n";
+                                message = "🎖 Classifica Medaglie 🎖\n";
                                 for (var j = 0; j < ranking.length; j++) {
                                     message+= "\n" + (j+1) +") " + ranking[j].key + " (" + ranking[j].value +")";
                                 }
