@@ -18,7 +18,7 @@ var ventriloquist = function(){
                /* if(Util.startsWith(text,"!") || Util.startsWith(text,"/"))
                     reply({type: 'text', text: "I am not echoing that."}); 
                 else */
-                    reply({type: 'wormhole', text: matchEcho[1]}); 
+                    reply({type: 'channel', text: matchEcho[1]}); 
             }
     });
 

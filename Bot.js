@@ -67,6 +67,10 @@ function handleReply(chatId, reply){
             var chatId = "-9965238";
             bot.sendMessage(chatId, reply.text, reply.options);
             break;
+        case "channel":
+            var chatId = "@adayinthelife";
+            bot.sendMessage(chatId, reply.text, reply.options);
+            break;
         case "audio":
             bot.sendAudio(chatId, reply.audio, reply.options);
             break;

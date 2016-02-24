@@ -46,8 +46,8 @@ var gtravel = function(){
             
              reply({ type: "status", status: "upload_photo" });
              
-             
-             webshot('http://www.google.com/gwt/x?u=http%3A%2F%2Fwww.gnoccatravels.com%2Fdiscussion%2F'+gchoice+'&noimg=1&btnGo=Vai&source=wax&ie=UTF-8&oe=UTF-8', 'gnocca.png',gnoptions, function(err) {
+             //http://googleweblight.com/?lite_url=http://www.gnoccatravels.com/discussion/02343&f=1&s=1&source=wax-wax
+             webshot('http://googleweblight.com/?lite_url=http%3A%2F%2Fwww.gnoccatravels.com%2Fdiscussion%2F'+gchoice+'&noimg=1&btnGo=Vai&source=wax&ie=UTF-8&oe=UTF-8', 'gnocca.png',gnoptions, function(err) {
   reply({ type: "status", status: "upload_photo" });
   reply({ type: "photo", photo: 'gnocca.png' });
   
